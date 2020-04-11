@@ -14,6 +14,11 @@
 		053414882441EF0300D41FD9 /* BaseAPI_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 053414862441EF0300D41FD9 /* BaseAPI_Demo.xcdatamodeld */; };
 		0534148A2441EF0500D41FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053414892441EF0500D41FD9 /* Assets.xcassets */; };
 		0534148D2441EF0500D41FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0534148B2441EF0500D41FD9 /* LaunchScreen.storyboard */; };
+		05341498244225A600D41FD9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05341496244225A600D41FD9 /* CollectionViewCell.swift */; };
+		0534149B24422C5700D41FD9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0534149A24422C5700D41FD9 /* ResultViewController.swift */; };
+		0534149F2442383200D41FD9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0534149E2442383200D41FD9 /* DetailViewController.swift */; };
+		053414A124425DF900D41FD9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053414A024425DF900D41FD9 /* Image.swift */; };
+		053414A324425EB600D41FD9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053414A224425EB600D41FD9 /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		053414892441EF0500D41FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0534148C2441EF0500D41FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0534148E2441EF0500D41FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05341496244225A600D41FD9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		0534149A24422C5700D41FD9 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		0534149E2442383200D41FD9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		053414A024425DF900D41FD9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		053414A224425EB600D41FD9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +71,13 @@
 				0534147D2441EF0300D41FD9 /* AppDelegate.swift */,
 				0534147F2441EF0300D41FD9 /* SceneDelegate.swift */,
 				053414812441EF0300D41FD9 /* ViewController.swift */,
-				053414832441EF0300D41FD9 /* Main.storyboard */,
+				0534149A24422C5700D41FD9 /* ResultViewController.swift */,
+				0534149E2442383200D41FD9 /* DetailViewController.swift */,
+				05341496244225A600D41FD9 /* CollectionViewCell.swift */,
+				053414A024425DF900D41FD9 /* Image.swift */,
+				053414A224425EB600D41FD9 /* APIRequest.swift */,
 				053414892441EF0500D41FD9 /* Assets.xcassets */,
+				053414832441EF0300D41FD9 /* Main.storyboard */,
 				0534148B2441EF0500D41FD9 /* LaunchScreen.storyboard */,
 				0534148E2441EF0500D41FD9 /* Info.plist */,
 				053414862441EF0300D41FD9 /* BaseAPI_Demo.xcdatamodeld */,
@@ -141,10 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053414A124425DF900D41FD9 /* Image.swift in Sources */,
 				053414822441EF0300D41FD9 /* ViewController.swift in Sources */,
 				0534147E2441EF0300D41FD9 /* AppDelegate.swift in Sources */,
+				0534149B24422C5700D41FD9 /* ResultViewController.swift in Sources */,
+				05341498244225A600D41FD9 /* CollectionViewCell.swift in Sources */,
 				053414882441EF0300D41FD9 /* BaseAPI_Demo.xcdatamodeld in Sources */,
 				053414802441EF0300D41FD9 /* SceneDelegate.swift in Sources */,
+				053414A324425EB600D41FD9 /* APIRequest.swift in Sources */,
+				0534149F2442383200D41FD9 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
