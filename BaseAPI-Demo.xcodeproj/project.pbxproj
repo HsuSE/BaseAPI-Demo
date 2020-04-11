@@ -18,7 +18,6 @@
 		0534149B24422C5700D41FD9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0534149A24422C5700D41FD9 /* ResultViewController.swift */; };
 		0534149F2442383200D41FD9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0534149E2442383200D41FD9 /* DetailViewController.swift */; };
 		053414A124425DF900D41FD9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053414A024425DF900D41FD9 /* Image.swift */; };
-		053414A324425EB600D41FD9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053414A224425EB600D41FD9 /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		0534149A24422C5700D41FD9 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		0534149E2442383200D41FD9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		053414A024425DF900D41FD9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		053414A224425EB600D41FD9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 				0534149E2442383200D41FD9 /* DetailViewController.swift */,
 				05341496244225A600D41FD9 /* CollectionViewCell.swift */,
 				053414A024425DF900D41FD9 /* Image.swift */,
-				053414A224425EB600D41FD9 /* APIRequest.swift */,
 				053414892441EF0500D41FD9 /* Assets.xcassets */,
 				053414832441EF0300D41FD9 /* Main.storyboard */,
 				0534148B2441EF0500D41FD9 /* LaunchScreen.storyboard */,
@@ -163,7 +160,6 @@
 				05341498244225A600D41FD9 /* CollectionViewCell.swift in Sources */,
 				053414882441EF0300D41FD9 /* BaseAPI_Demo.xcdatamodeld in Sources */,
 				053414802441EF0300D41FD9 /* SceneDelegate.swift in Sources */,
-				053414A324425EB600D41FD9 /* APIRequest.swift in Sources */,
 				0534149F2442383200D41FD9 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
