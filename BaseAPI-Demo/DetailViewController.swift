@@ -23,13 +23,13 @@ class DetailViewController: UIViewController {
                 (navigationController?.navigationBar.frame.height ?? 0.0)
         view.backgroundColor = .white
         let fullScreenSize = UIScreen.main.bounds.size
+        
         imageView = UIImageView(frame: CGRect(
             x: 0, y: navBarHeight,
             width: fullScreenSize.width,
             height: fullScreenSize.width
         ))
         imageView.contentMode = .scaleToFill
-        
         view.addSubview(imageView)
         
         idLabel = UILabel(frame: CGRect(
@@ -47,8 +47,9 @@ class DetailViewController: UIViewController {
         ))
         titleLabel.textAlignment = .left
         view.addSubview(titleLabel)
+        
         imageView.image = UIImage(imageLiteralResourceName: "default")
-        imageload(url: image.thumbnailUrl) { (data) in
+        ImageLoader.load(url: image.thumbnailUrl) { (data) in
             self.imageView.image = UIImage(data: data)
         }
         idLabel.text = "id: \(image.id)"
@@ -56,18 +57,7 @@ class DetailViewController: UIViewController {
         
     }
     
-    func imageload(url: URL?, completion: @escaping (Data) -> ()) {
-        if let url = url {
-            URLSession.shared.dataTask(with: url) { (data, _, _) in
-                guard let data = data else { return }
-                DispatchQueue.main.async {
-                    completion(data)
-                }
-                
-            }.resume()
-        }
-    }
-    
+
 
     /*
     // MARK: - Navigation

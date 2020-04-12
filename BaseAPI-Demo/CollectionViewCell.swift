@@ -16,8 +16,10 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Initialization code
+        
         let fullScreenSize = UIScreen.main.bounds.size
         self.backgroundColor = .white
+        
         imageView = UIImageView(frame: CGRect(
             x: 0, y: 0,
             width: fullScreenSize.width/4,
@@ -32,7 +34,6 @@ class CollectionViewCell: UICollectionViewCell {
             height: fullScreenSize.width/4/2
         ))
         idLabel.textAlignment = .center
-        
         self.addSubview(idLabel)
         
         titleLabel = UILabel(frame: CGRect(
@@ -40,11 +41,9 @@ class CollectionViewCell: UICollectionViewCell {
             width: fullScreenSize.width/4,
             height: fullScreenSize.width/4/2
         ))
-        
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
         self.addSubview(titleLabel)
 
     }

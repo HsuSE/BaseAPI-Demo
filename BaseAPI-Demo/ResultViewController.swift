@@ -19,7 +19,7 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        fullScreenSize = UIScreen.main.bounds.size
+        
         let resourceURL = URL(string: "https://jsonplaceholder.typicode.com/photos")!
         
         fetchJSON(url: resourceURL) { result in
@@ -28,13 +28,20 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
                 self.images = images
                 self.collectionView.reloadData()
                 print("reload")
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure(.decodeError):
+                print("Decode Error")
+            case .failure(.responseError):
+                print("Response Error")
             }
         }
+        setUpCollectionViewController()
+        
+    }
+    
+    func setUpCollectionViewController() {
+        fullScreenSize = UIScreen.main.bounds.size
         
         let layout = UICollectionViewFlowLayout()
-        
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -52,18 +59,18 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         collectionView.delegate = self as UICollectionViewDelegate
         collectionView.dataSource = self as UICollectionViewDataSource
-        self.view.addSubview(collectionView)
+        view.addSubview(collectionView)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        images.count
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CollectionViewCell
         
         cell.imageView.image = UIImage(imageLiteralResourceName: "default")
-        imageload(url: images[indexPath.row].url) { data in
+        ImageLoader.load(url: images[indexPath.row].url) { data in
             cell.imageView.image = UIImage(data: data)
         }
         cell.idLabel.text = String(images[indexPath.row].id)
@@ -78,17 +85,17 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    fileprivate func fetchJSON(url: URL, complation: @escaping  (Result<[ImageDetail], Error>) -> ()) {
+    fileprivate func fetchJSON(url: URL, complation: @escaping  (Result<[ImageDetail], Err>) -> ()) {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,
-                let jsonData = data else { return complation(.failure(error!)) }
+                let jsonData = data else { return complation(.failure(.responseError)) }
             
             let decoder = JSONDecoder()
-            guard let images = try? decoder.decode([ImageDetail].self, from: jsonData) else { return complation(.failure(error!)) }
+            guard let images = try? decoder.decode([ImageDetail].self, from: jsonData) else { return complation(.failure(.decodeError)) }
             
             DispatchQueue.main.async {
                 complation(.success(images))
@@ -96,18 +103,7 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
             print("Fetch completed.")
         }.resume()
     }
-    
-    func imageload(url: URL?, completion: @escaping (Data) -> ()) {
-        if let url = url {
-            URLSession.shared.dataTask(with: url) { (data, _, _) in
-                guard let data = data else { return }
-                DispatchQueue.main.async {
-                    completion(data)
-                }
-                
-            }.resume()
-        }
-    }
+
     
     
     /*
@@ -120,4 +116,9 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
      }
      */
     
+}
+
+enum Err: Error {
+    case responseError
+    case decodeError
 }
