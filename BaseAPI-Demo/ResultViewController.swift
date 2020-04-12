@@ -38,7 +38,7 @@ class ResultViewController: UIViewController, UICollectionViewDelegate, UICollec
         
     }
     
-    func setUpCollectionViewController() {
+    fileprivate func setUpCollectionViewController() {
         fullScreenSize = UIScreen.main.bounds.size
         
         let layout = UICollectionViewFlowLayout()
